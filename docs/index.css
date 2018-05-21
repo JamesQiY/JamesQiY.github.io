@@ -1,0 +1,81 @@
+body {
+  margin: 0px;
+  background-image: url('b1.png') no-repeat center fixed;
+  background-size: cover;
+  font-family: 'Century Gothic', san-serif;
+  overflow: scroll;
+}
+
+#nameTitle {
+  text-align: center;
+  font-weight: 100;
+  font-size: 40px;
+  letter-spacing: 4px;
+}
+
+#university {
+  text-align: center;
+  font-size: 20px;
+}
+
+.navBar {
+  list-style-type: none;
+  display: block;
+  float: right;
+  margin-right: 15px;
+  top:80px;
+  background-color: rgb(122, 122, 122, 0.8);
+}
+
+.navBar li, a{
+  display: block;
+  color: #000;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.navBar li:hover:not(.active){
+  color: white;
+  user-select: none;
+}
+
+a:hover:not(.active){
+  color: #71FE46;
+  user-select: none;
+}
+
+#personalInfoText{
+  margin-left: 20px;
+  width: 50%;
+  padding: 1em;
+  font-family: 'Arial';
+  font-size: 11px;
+  background-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+
+.footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  opacity: 1;
+  background-color: rgba(0,0,0,0.4);
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+
+.ink {
+  display: block; position: absolute;
+  background: hsl(180, 40%, 80%);
+  border-radius: 100%;
+  transform: scale(0);
+}
+/*animation effect*/
+.ink.animate {animation: ripple 0.65s linear;}
+@keyframes ripple {
+  /*scale the element to 250% to safely cover the entire link and fade it out*/
+  100% {opacity: 0; transform: scale(2.5);}
+}
