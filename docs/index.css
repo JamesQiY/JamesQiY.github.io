@@ -1,6 +1,6 @@
 body {
   margin: 0px;
-  background: url('http://thecodeplayer.com/u/m/b1.png') no-repeat center fixed;
+  background-image: url('b1.png') no-repeat center fixed;
   background-size: cover;
   font-family: 'Century Gothic', san-serif;
   overflow: scroll;
