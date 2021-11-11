@@ -132,14 +132,15 @@ class Background extends Component {
     // animation
     const clock = new THREE.Clock();
     const animate = () => {
-      const time = 1.1 * Math.log2(clock.getElapsedTime() + 5) + 5;
+      const elapsed = Math.min (clock.getElapsedTime(), 25);
+      const time = 1.1 * Math.log10(elapsed + 5) + 5;
 
       starMesh.rotation.y = time;
       starMesh.rotation.x = time;
 
       if (mouseX > 0) {
-        starMesh.rotation.x = (mouseX / sizeX) * 0.5 * (time);
-        starMesh.rotation.y = (mouseY / sizeY) * 0.5 * (time);
+        starMesh.rotation.x += (mouseX / sizeX) * 0.5 * (Math.min(0.55,time));
+        starMesh.rotation.y += (mouseY / sizeY) * 0.5 * (Math.min(0.55,time));
       }
       renderer.render(scene, camera);
       window.requestAnimationFrame(animate)

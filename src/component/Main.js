@@ -9,7 +9,7 @@ const Main = ({darkTheme}) => {
   return (
     <Routes> {/* The Routes decides which component to show based on the current URL.*/}
       <Route exact path='/' element={<Home darkTheme={darkTheme} key={darkTheme}/>}></Route>
-      <Route exact path='/projects' element={<Projects/>}></Route>
+      <Route exact path='/projects' element={<Projects darkTheme={darkTheme} key={darkTheme} />}></Route>
     </Routes>
   );
 }
