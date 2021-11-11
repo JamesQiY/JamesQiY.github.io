@@ -9,10 +9,10 @@ const iconSize = '2rem'
 const Sidebar = ({darkTheme, setDarkTheme}) => {
   return (
     <div className='relative top-0 left-0 w-16 m-0 pt-4 flex flex-col flex-none bg-white dark:bg-gray-700 text-white shadow-lg'>
-      <Link to="/">
+      <Link to="/Website">
         <SideBarIcon icon={<FaHome size={iconSize} />} text='Home' />
       </Link>
-      <Link to="/projects">
+      <Link to="/Website/projects">
         <SideBarIcon icon={<FaCode size={iconSize} />} text='Projects' />
       </Link>
       <LinkIcon link='https://github.com/JamesQiY' icon={<FaGithub size={iconSize} />} text='Github' />
