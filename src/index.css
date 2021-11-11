@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar_icon {
+    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto 
+    shadow-xl dark:shadow-md
+    bg-truegray-200 dark:bg-gray-800 text-red-400 rounded-3xl
+    hover:bg-red-700 hover:rounded-xl
+    transition-all duration-200 ease-linear;
+  }
+
+  .sidebar_text {
+    @apply absolute w-auto h-auto m-2 p-2 min-w-max left-14 rounded-md 
+    shadow-xl dark:shadow-md
+    text-black dark:text-white 
+    bg-white dark:bg-gray-800
+    text-lg
+    transition-all duration-100 scale-0 origin-left;
+  }
+
+  .header {
+    @apply
+    h-20 p-5 mt-4
+    text-5xl font-sans font-bold
+    text-center justify-center align-middle
+    text-black dark:text-white 
+    bg-transparent;
+  }
+
+  .body {
+    @apply top-0 bottom-0 left-0 right-0 fixed;
+  }
+
+  .test {
+    @apply z-30;
+  }
+
+}
