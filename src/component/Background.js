@@ -1,4 +1,3 @@
-'use strict';
 import React, { Component } from "react";
 import * as THREE from 'three';
 import PropTypes from 'prop-types';
@@ -31,7 +30,7 @@ class Background extends Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
     try {
-      for (const listen in this.listeners){
+      for (const listen in this.listeners) {
         window.removeEventListener(listen, this.listeners[listen]);
       }
     } catch (error) {
@@ -51,7 +50,7 @@ class Background extends Component {
     let sizeY = this.state.y;
     let darkMode = this.state.dark;
     // colors 
-    const color = darkMode ? 'white' : 'black';
+    // const color = darkMode ? 'white' : 'black';
     const bg_color = darkMode ? 0x212121 : 0xffffff;
 
     // scene
@@ -80,18 +79,32 @@ class Background extends Component {
 
     // geometry objects
     var stars = new THREE.BufferGeometry();
-    const starsNum = 5000;
-    const posArray = new Float32Array(starsNum * 3);
+    const starsNum = 6000;
+    const posArray = [];
+    const colArray = [];
+    const color = new THREE.Color();
 
-    for (let i = 0; i < starsNum * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 4;
+    for (let i = 0; i < starsNum; i++) {
+      const x = (Math.random() - 0.5) * 8;
+      const y = (Math.random() - 0.5) * 8;
+      const z = (Math.random() - 0.5) * 8;
+      const vx = Math.random() ;
+      const vy = Math.random() * x;
+      const vz = Math.random() ;
+
+      color.setRGB(vx, vy, vz);
+
+      posArray.push(x,y,z);
+      colArray.push(color.r, color.g, color.b);
     }
-    stars.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    stars.setAttribute('position', new THREE.Float32BufferAttribute(posArray, 3));
+    stars.setAttribute('color', new THREE.Float32BufferAttribute(colArray, 3));
+    stars.computeBoundingSphere();
 
     // materials
     const starMaterial = new THREE.PointsMaterial({
-      color: color,
-      size: 0.00125,
+      vertexColors: true,
+      size: 0.005,
       // transparent: true,
     });
     const starMesh = new THREE.Points(stars, starMaterial)
@@ -112,14 +125,14 @@ class Background extends Component {
       sizeX = window.innerWidth;
       sizeY = window.innerHeight;
       renderer.setSize(sizeX, sizeY);
-      // camera.aspect = sizeX / sizeY;
+      camera.aspect = sizeX / sizeY;
       camera.updateProjectionMatrix()
     }
 
     // animation
     const clock = new THREE.Clock();
     const animate = () => {
-      const time = Math.log(clock.getElapsedTime() + 10) * 0.5 + 5;
+      const time = 1.1 * Math.log2(clock.getElapsedTime() + 5) + 5;
 
       starMesh.rotation.y = time;
       starMesh.rotation.x = time;
@@ -132,7 +145,7 @@ class Background extends Component {
       window.requestAnimationFrame(animate)
     }
     animate();
-    return {'mousemove': mouseStars, 'resize': resize}
+    return { 'mousemove': mouseStars, 'resize': resize }
   }
 }
 

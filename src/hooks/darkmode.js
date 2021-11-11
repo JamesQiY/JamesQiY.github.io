@@ -1,8 +1,7 @@
-'use strict';
 import { useEffect, useState } from "react";
 
 // to store a local key-value pair
-const useLocalStorage = (key, value) => {
+const UseLocalStorage = (key, value) => {
   const [storedValue, setStoredValue] = useState(() => {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : value;
@@ -14,8 +13,8 @@ const useLocalStorage = (key, value) => {
   return [storedValue, setValue];
 }
 
-const enableDarkMode = () => {
-  const [enabled, setEnabled] = useLocalStorage('dark-theme');
+const EnableDarkMode = () => {
+  const [enabled, setEnabled] = UseLocalStorage('dark-theme');
 
   useEffect(() => {
     const className = 'dark';
@@ -26,4 +25,4 @@ const enableDarkMode = () => {
   return [enabled, setEnabled];
 }
 
-export default enableDarkMode;
+export default EnableDarkMode;

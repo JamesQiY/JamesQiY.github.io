@@ -1,8 +1,7 @@
-'use strict'
 import React from 'react';
 import {FaDiscord, FaLanguage} from 'react-icons/fa';
 import PropTypes from 'prop-types';
-const CardInfo = require('./ProjectCards/CardInfo.json')
+const CardInfo = require('./CardInfo.json')
 
 const Projects = () => {
   return (

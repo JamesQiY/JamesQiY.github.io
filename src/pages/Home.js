@@ -1,7 +1,6 @@
-'use strict'
 import React from 'react';
 import Header from '../component/header'
-import Background from './Background';
+import Background from '../component/Background';
 import PropTypes from 'prop-types';
 // import profile_pic from ''
 
@@ -10,10 +9,10 @@ const Home = ({darkTheme}) => {
     <div className="flex-1">
       <Background dark={darkTheme} key={darkTheme} />
       <div className='flex flex-1 justify-center '>
-        <div className='flex flex-col mt-4 items-center bg-truegray-50 bg-opacity-25 dark:bg-gray-400 dark:bg-opacity-25 rounded-3xl z-10'>
+        <div className='flex flex-col mt-4 items-center bg-truegray-300 bg-opacity-25 dark:bg-gray-400 dark:bg-opacity-25 rounded-3xl z-10 shadow-md'>
         <Header className='bg-transparent'/> 
         <div className='p-5 mt-5 text-center dark:text-white'> Recent Graduate ( Developer / Learner / Artist )</div>
-        <img className='flex items-center justify-center m-5 rounded-full border-2 border-red-400 min-w-100 w-1/6 h-auto' src={'/profile_pic.png'} />
+        <img className='flex items-center justify-center m-5 rounded-full border-2 border-red-400 min-w-100 w-1/6 h-auto' src={'/profile_pic.png'} alt="pic of me :)" />
         <div className='p-5 text-center dark:text-white max-w-lg px-auto'>
           My name is Qi Hang Yang but I can also be called James.<br></br>
           I am a recent graduate from University of Toronto under the Software Engineering Stream.
