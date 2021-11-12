@@ -1,4 +1,4 @@
-import { FaCode, FaHome, FaSun, FaMoon, FaGithub, FaFile } from 'react-icons/fa';
+import { FaCode, FaHome, FaSun, FaMoon, FaGithub, FaFile, FaInstagram} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -15,8 +15,11 @@ const Sidebar = ({darkTheme, setDarkTheme}) => {
       <Link to="/projects">
         <SideBarIcon icon={<FaCode size={iconSize} />} text='Projects'/>
       </Link>
+      
       <LinkIcon link='https://github.com/JamesQiY' icon={<FaGithub size={iconSize} />} text='Github' />
       <LinkIcon link='/RESUME_JAMES_YANG.pdf' icon={<FaFile size={iconSize} />} text='Resume' download={true} />
+      <LinkIcon link='https://www.instagram.com/reddishjam/' icon={<FaInstagram size={iconSize} />} text='Instagram'/>
+
       <ThemeIcon darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
     </div>
   )

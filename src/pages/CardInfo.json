@@ -1,18 +1,27 @@
 {
   "bot":{
     "name": "Wargroove Damage Discord Bot",
+    "date": "2021",
     "tech": ["Node.js", "Discord API", "Heroku"],
-    "desc": "A Discord bot that parases and calculates user input for the game Wargroove. Used and deployed in the official Wargroove discord. Hosted on a third-party cloud service. Twitch chat integration for personal Twitch account"
+    "desc": "A Discord bot that parases and calculates user input for the game Wargroove. Hosted on a third-party cloud service, deployed in the official Wargroove discord. Features custom string parser for maximum convenience for the user. Twitch chat integration for personal Twitch account."
   },
   "ai":{
     "name": "Natural Language Predictor",
-    "tech": ["C++", "Machine Learning"],
-    "desc": "Part-Of-Speech (POS) tagging training and prediction. Probability tables are created with words that are associated with a part-of-speech tag. The tables are then used to create a Hidden Markov Model for future prediction."
+    "date": "2021",
+    "tech": ["Python", "Machine Learning"],
+    "desc": "Part-Of-Speech (POS) tagging training and prediction. A Hidden Markov Model is created with a generated probability table. The tables uses given words that are associated with a part-of-speech tag to create the necessary components of the model. "
   },
   "site": {
     "name": "Personal Website",
-    "tech": ["React", "React-Router", "Tailwind CSS", "Three.js"],
+    "date": "2021",
+    "tech": ["React", "Tailwind CSS", "Three.js"],
     "desc": "This website right here! Next improvement for the site is to add resposive elements for medium and small screens"
+  },
+  "image": {
+    "name": "PGM Image Processor",
+    "date": "2020",
+    "tech": ["C", "Python"],
+    "desc": "An image processor that implements pThreads to apply various Laplace filters to the given PGM image for sharpening images. Different methods of execution was explored (eg. sharded-rows, work-queue). Done as an assignment for CSC367 (Parallel Programming)"
   }
 
 

@@ -22,7 +22,6 @@ class Background extends Component {
   }
 
   componentDidMount() {
-    console.log('mounted but not rendered???')
     window.addEventListener('resize', this.handleResize);
     this.listeners = this.background_init();
   }

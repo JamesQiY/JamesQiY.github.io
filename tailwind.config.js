@@ -14,13 +14,14 @@ module.exports = {
         body: ['Helvetica']
       },
       minWidth: {
-        '100': '100px',
+        '100': '400px',
       },
       maxWidth: {
         '100': '100px',
       },
       flex: {
         nostrink: '1 0 auto',
+        one: '1'
       },
       zIndex:{
         '-10': '-10',
