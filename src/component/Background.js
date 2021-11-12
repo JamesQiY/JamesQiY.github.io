@@ -6,13 +6,12 @@ class Background extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dark: props.dark,
+      dark: props.darkTheme,
       x: window.innerWidth,
       y: window.innerHeight
     }
     this.listeners = {};
     this.handleResize = this.handleResize.bind(this);
-
   }
 
   handleResize() {
@@ -23,6 +22,7 @@ class Background extends Component {
   }
 
   componentDidMount() {
+    console.log('mounted but not rendered???')
     window.addEventListener('resize', this.handleResize);
     this.listeners = this.background_init();
   }
@@ -39,15 +39,11 @@ class Background extends Component {
   }
   // width={this.state.x} height={this.state.y}
   render() {
-    const canvas = <canvas id="bg" className="absolute -z-10 opacity-90" ></canvas>;
-    return (
-      canvas
-    )
+    const canvas = <canvas id="bg" className="absolute top-0 left-0 -z-10 w-full h-full opacity-90" width={this.state.x} height={this.state.y} ></canvas>;
+    return (canvas)
   }
 
   background_init() {
-    let sizeX = this.state.x;
-    let sizeY = this.state.y;
     let darkMode = this.state.dark;
     // colors 
     // const color = darkMode ? 'white' : 'black';
@@ -56,6 +52,8 @@ class Background extends Component {
     // scene
     const scene = new THREE.Scene();
     var canvas = document.querySelector('canvas');
+    let sizeX = canvas.width;
+    let sizeY = canvas.height;
 
     // camera
     const camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100);

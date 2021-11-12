@@ -1,10 +1,19 @@
 {
-  "ai":{
-    "name": "Natural Language Predictor",
-    "desc": "Placeholder: One task within this spectrum is Part-Of-Speech (POS) tagging. Every word and punctuation symbol is understood to have a syntactic role in its sentence, such as nouns (denoting people, places or things), verbs (denoting actions), adjectives (which describe nouns) and adverbs (which describe verbs), just to name a few. Each word in a piece of text is therefore associated with a part-of-speech tag (usually assigned by hand), where the total number of tags can depend on the organization tagging the text."
-  },
   "bot":{
     "name": "Wargroove Damage Discord Bot",
-    "desc": "Placeholder: Create a discord bot that handles in-game damage calculations that is not offered by the game.hosted on a third-party cloud service. Node.js, discord API, heroku"
+    "tech": ["Node.js", "Discord API", "Heroku"],
+    "desc": "A Discord bot that parases and calculates user input for the game Wargroove. Used and deployed in the official Wargroove discord. Hosted on a third-party cloud service. Twitch chat integration for personal Twitch account"
+  },
+  "ai":{
+    "name": "Natural Language Predictor",
+    "tech": ["C++", "Machine Learning"],
+    "desc": "Part-Of-Speech (POS) tagging training and prediction. Probability tables are created with words that are associated with a part-of-speech tag. The tables are then used to create a Hidden Markov Model for future prediction."
+  },
+  "site": {
+    "name": "Personal Website",
+    "tech": ["React", "React-Router", "Tailwind CSS", "Three.js"],
+    "desc": "This website right here! Next improvement for the site is to add resposive elements for medium and small screens"
   }
+
+
 }

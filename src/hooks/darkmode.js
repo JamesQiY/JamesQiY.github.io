@@ -14,7 +14,7 @@ const UseLocalStorage = (key, value) => {
 }
 
 const EnableDarkMode = () => {
-  const [enabled, setEnabled] = UseLocalStorage('dark-theme',true);
+  const [enabled, setEnabled] = UseLocalStorage('dark-theme', true);
 
   useEffect(() => {
     const className = 'dark';
