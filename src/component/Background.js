@@ -105,7 +105,7 @@ class Background extends Component {
     // materials
     const starMaterial = new THREE.PointsMaterial({
       vertexColors: true,
-      size: 0.005,
+      size: 0.0075,
       // transparent: true,
     });
     const starMesh = new THREE.Points(stars, starMaterial)
@@ -133,10 +133,12 @@ class Background extends Component {
     // }
     const clock = new THREE.Clock();
     const animate = () => {
-      const speed = 0.04;
+      const speed = 0.3;
+      this.starBG.mesh.rotation.y = speed * clock.getElapsedTime();
+      this.starBG.mesh.rotation.x = speed * clock.getElapsedTime();
 
-      this.starBG.mesh.rotation.y = speed * (Math.sin(clock.getElapsedTime()) + 2);
-      this.starBG.mesh.rotation.x = speed * (Math.sin(clock.getElapsedTime()) + 2);
+      // this.starBG.mesh.rotation.y = speed * (Math.sin(clock.getElapsedTime()) + 2);
+      // this.starBG.mesh.rotation.x = speed * (Math.sin(clock.getElapsedTime()) + 2);
 
       if (mouseX > 0) {
         this.starBG.mesh.rotation.x += (mouseX * 0.01) * 0.075;

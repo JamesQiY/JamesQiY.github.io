@@ -4,11 +4,11 @@ import Header from '../component/header'
 
 const Home = () => {
   return (
-    <div className="flex-1">
+    <div className="flex-1 overflow-auto">
       <div className='flex flex-1 justify-center'>
-        <div className='flex flex-col flex-1 mt-4 mx-2 max-w-lg items-center bg-truegray-300 bg-opacity-50 dark:bg-gray-400 dark:bg-opacity-25 rounded-3xl z-10 shadow-md'>
+        <div className='flex flex-col flex-1 my-4 mx-2 max-w-lg items-center bg-truegray-300 bg-opacity-50 dark:bg-gray-400 dark:bg-opacity-25 rounded-3xl z-10 shadow-md'>
         <Header className='bg-transparent'/> 
-        <div className='p-5 mt-5 text-center dark:text-white'> Recent Graduate ( Developer / Learner / Amateur Artist )</div>
+        <div className='p-5 mt-5 text-center dark:text-white'> Recent Graduate ( Developer / Amateur Artist )</div>
         <img className='flex items-center justify-center m-5 
           border-2 border-red-400 rounded-full 
           w-sm sm:min-w-lg xl:min-w-3xl h-auto' src={'/profile_pic.png'} alt="pic of me :)" />
