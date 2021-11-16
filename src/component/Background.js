@@ -7,53 +7,56 @@ class Background extends Component {
     super(props);
     this.state = {
       dark: props.darkTheme,
-      x: window.innerWidth,
-      y: window.innerHeight
+      statex: this.props.width,
+      statey: this.props.height,
     }
     this.listeners = {};
+    this.starBG = {}; //render object
     this.handleResize = this.handleResize.bind(this);
+    this.startAnimation = this.startAnimation.bind(this);
   }
 
   handleResize() {
-    this.setState({
-      x: window.innerWidth,
-      y: window.innerHeight
-    })
+    this.x = this.props.width;
+    this.y = this.props.height;
+  }
+
+  componentDidUpdate(){
+    this.starBG.renderer.setSize(this.props.width, this.props.height)
+    this.starBG.camera.aspect = this.props.width / this.props.height;
+    this.starBG.camera.updateProjectionMatrix()
   }
 
   componentDidMount() {
-    console.log('mounted but not rendered???')
     window.addEventListener('resize', this.handleResize);
-    this.listeners = this.background_init();
+    this.background_init();
+    this.listeners = this.startAnimation();
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
     try {
-      for (const listen in this.listeners) {
-        window.removeEventListener(listen, this.listeners[listen]);
-      }
+        window.removeEventListener('mousemove', this.listeners);
     } catch (error) {
       console.log(error);
     }
   }
-  // width={this.state.x} height={this.state.y}
+
   render() {
-    const canvas = <canvas id="bg" className="absolute top-0 left-0 -z-10 w-full h-full opacity-90" width={this.state.x} height={this.state.y} ></canvas>;
+    const canvas = <canvas id="bg" className="absolute p-0 m-0 -z-10 opacity-90 overflow-hidden" width={this.props.width} height={this.props.height} ></canvas>;
     return (canvas)
   }
 
   background_init() {
     let darkMode = this.state.dark;
     // colors 
-    // const color = darkMode ? 'white' : 'black';
     const bg_color = darkMode ? 0x212121 : 0xffffff;
 
     // scene
     const scene = new THREE.Scene();
     var canvas = document.querySelector('canvas');
-    let sizeX = canvas.width;
-    let sizeY = canvas.height;
+    let sizeX = this.x;
+    let sizeY = this.y;
 
     // camera
     const camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100);
@@ -102,49 +105,50 @@ class Background extends Component {
     // materials
     const starMaterial = new THREE.PointsMaterial({
       vertexColors: true,
-      size: 0.005,
+      size: 0.0075,
       // transparent: true,
     });
     const starMesh = new THREE.Points(stars, starMaterial)
     scene.add(starMesh);
 
-    // listners
+    this.starBG.mesh = starMesh;
+    this.starBG.renderer = renderer;
+    this.starBG.scene = scene;
+    this.starBG.camera = camera;
+  }
+
+  startAnimation(){
+    var renderer = this.starBG.renderer
     let mouseX = 0;
     let mouseY = 0;
-    document.addEventListener('mousemove', mouseStars);
-    window.addEventListener('resize', resize);
+    let mouse = document.addEventListener('mousemove', mouseStars);
 
     function mouseStars(event) {
       mouseX = event.clientX;
       mouseY = event.clientY;
     }
 
-    function resize() {
-      sizeX = window.innerWidth;
-      sizeY = window.innerHeight;
-      renderer.setSize(sizeX, sizeY);
-      camera.aspect = sizeX / sizeY;
-      camera.updateProjectionMatrix()
-    }
-
-    // animation
+    // function resize() {
+      
+    // }
     const clock = new THREE.Clock();
     const animate = () => {
-      const elapsed = Math.min (clock.getElapsedTime(), 25);
-      const time = 1.1 * Math.log10(elapsed + 5) + 5;
+      const speed = 0.3;
+      this.starBG.mesh.rotation.y = speed * clock.getElapsedTime();
+      this.starBG.mesh.rotation.x = speed * clock.getElapsedTime();
 
-      starMesh.rotation.y = time;
-      starMesh.rotation.x = time;
+      // this.starBG.mesh.rotation.y = speed * (Math.sin(clock.getElapsedTime()) + 2);
+      // this.starBG.mesh.rotation.x = speed * (Math.sin(clock.getElapsedTime()) + 2);
 
       if (mouseX > 0) {
-        starMesh.rotation.x += (mouseX / sizeX) * 0.5 * (Math.min(0.55,time));
-        starMesh.rotation.y += (mouseY / sizeY) * 0.5 * (Math.min(0.55,time));
+        this.starBG.mesh.rotation.x += (mouseX * 0.01) * 0.075;
+        this.starBG.mesh.rotation.y += (mouseY * 0.01) * 0.075;
       }
-      renderer.render(scene, camera);
+      renderer.render(this.starBG.scene, this.starBG.camera);
       window.requestAnimationFrame(animate)
     }
     animate();
-    return { 'mousemove': mouseStars, 'resize': resize }
+    return mouse;
   }
 }
 
