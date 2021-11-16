@@ -2,24 +2,28 @@
   "bot":{
     "name": "Wargroove Damage Discord Bot",
     "date": "2021",
+    "link": "https://github.com/JamesQiY/calcBot",
     "tech": ["Node.js", "Discord API", "Heroku"],
-    "desc": "A Discord bot that parases and calculates user input for the game Wargroove. Hosted on a third-party cloud service, deployed in the official Wargroove discord. Features custom string parser for maximum convenience for the user. Twitch chat integration for personal Twitch account."
+    "desc": "A Discord bot that parases and calculates user input for the game Wargroove. Hosted on a third-party cloud service, deployed in the official Wargroove discord. Features custom string parser for maximum convenience for the user. Twitch chat integration for personal account."
   },
   "ai":{
     "name": "Natural Language Predictor",
     "date": "2021",
+    "link": "https://github.com/JamesQiY/Tagger",
     "tech": ["Python", "Machine Learning"],
     "desc": "Part-Of-Speech (POS) tagging training and prediction. A Hidden Markov Model is created with a generated probability table. The tables uses given words that are associated with a part-of-speech tag to create the necessary components of the model. "
   },
   "site": {
     "name": "Personal Website",
     "date": "2021",
+    "link": "https://jamesqiy.github.io/",
     "tech": ["React", "Tailwind CSS", "Three.js"],
     "desc": "This website right here! Next improvement for the site is to add resposive elements for medium and small screens"
   },
   "image": {
     "name": "PGM Image Processor",
     "date": "2020",
+    "link": "https://github.com/JamesQiY/PGM-proc",
     "tech": ["C", "Python"],
     "desc": "An image processor that implements pThreads to apply various Laplace filters to the given PGM image for sharpening images. Different methods of execution was explored (eg. sharded-rows, work-queue). Done as an assignment for CSC367 (Parallel Programming)"
   }
