@@ -5,7 +5,7 @@ import CardInfo from './resource/CardInfo.json';
 
 const Projects = () => {
   return (
-    <div className="flex flex-row flex-grow flex-wrap max-h-full items-center justify-center overflow-auto">
+    <div className="flex flex-row flex-grow flex-wrap max-h-full items-center justify-center overflow-auto fade-in">
       <Card icon={<FaDiscord size="3em" />} project={CardInfo.bot} />
       <Card icon={<FaFileImage size="3em" />} project={CardInfo.image} />
       <Card icon={<FaLanguage size="3em" />} project={CardInfo.ai} />
@@ -18,7 +18,7 @@ const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
   return (
     <div className="m-2 mb-2 pt-1 max-w-lg min-w-400 sm:min-w-400 lg:min-w-1/4 
         flex flex-one flex-col items-center justify-center rounded-3xl 
-        bg-gray-100 dark:bg-truegray-700 shadow-md">
+        bg-gray-100 dark:bg-truegray-700 shadow-md translate-y-12">
 
       <div className="flex flex-col items-center justify-center">
         <a className="mt-5 mb-5 rounded-full h-16 w-16 
@@ -29,10 +29,11 @@ const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
           href={project.link}>
 
           {icon}
-          <div className="absolute align-bottom px-5 py-1 
+          <div target="_blank" rel="noopener noreferrer" 
+            className="absolute align-bottom px-5 py-1 
             text-white bg-gray-700 rounded-lg text-sm
             transition-all scale-0 duration-100 origin-top 
-            group-hover:translate-y-12 group-hover:scale-100  group-active:scale-100">Link</div>
+            group-hover:translate-y-12 group-hover:scale-100 group-active:scale-100">Link</div>
         </a>
         
       </div>

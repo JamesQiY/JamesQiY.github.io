@@ -25,7 +25,6 @@ const Sidebar = ({darkTheme, setDarkTheme}) => {
   )
 };
 
-
 const SideBarIcon = ({ icon, text = 'tooltip' }) => (
   <div className='sidebar_icon group'>
     {icon}
@@ -37,7 +36,7 @@ const SideBarIcon = ({ icon, text = 'tooltip' }) => (
 
 const LinkIcon = ({ link = '', icon, text = 'tooltip', download = false }) => {
   return (
-    <a href={link} {...download}>
+    <a href={link} {...download} target="_blank" rel="noopener noreferrer">
       <SideBarIcon icon={icon} text={text} />
     </a>
   );

@@ -21,7 +21,7 @@ class Background extends Component {
     this.y = this.props.height;
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.starBG.renderer.setSize(this.props.width, this.props.height)
     this.starBG.camera.aspect = this.props.width / this.props.height;
     this.starBG.camera.updateProjectionMatrix()
@@ -34,9 +34,9 @@ class Background extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
     try {
-        window.removeEventListener('mousemove', this.listeners);
+      window.removeEventListener('resize', this.handleResize);
+      window.removeEventListener('mousemove', this.listeners);
     } catch (error) {
       console.log(error);
     }
@@ -89,13 +89,13 @@ class Background extends Component {
       const x = (Math.random() - 0.5) * 8;
       const y = (Math.random() - 0.5) * 8;
       const z = (Math.random() - 0.5) * 8;
-      const vx = Math.random() ;
+      const vx = Math.random();
       const vy = Math.random() * x;
-      const vz = Math.random() ;
+      const vz = Math.random();
 
       color.setRGB(vx, vy, vz);
 
-      posArray.push(x,y,z);
+      posArray.push(x, y, z);
       colArray.push(color.r, color.g, color.b);
     }
     stars.setAttribute('position', new THREE.Float32BufferAttribute(posArray, 3));
@@ -106,7 +106,6 @@ class Background extends Component {
     const starMaterial = new THREE.PointsMaterial({
       vertexColors: true,
       size: 0.0075,
-      // transparent: true,
     });
     const starMesh = new THREE.Points(stars, starMaterial)
     scene.add(starMesh);
@@ -117,7 +116,7 @@ class Background extends Component {
     this.starBG.camera = camera;
   }
 
-  startAnimation(){
+  startAnimation() {
     var renderer = this.starBG.renderer
     let mouseX = 0;
     let mouseY = 0;
@@ -128,17 +127,11 @@ class Background extends Component {
       mouseY = event.clientY;
     }
 
-    // function resize() {
-      
-    // }
     const clock = new THREE.Clock();
     const animate = () => {
       const speed = 0.3;
       this.starBG.mesh.rotation.y = speed * clock.getElapsedTime();
       this.starBG.mesh.rotation.x = speed * clock.getElapsedTime();
-
-      // this.starBG.mesh.rotation.y = speed * (Math.sin(clock.getElapsedTime()) + 2);
-      // this.starBG.mesh.rotation.x = speed * (Math.sin(clock.getElapsedTime()) + 2);
 
       if (mouseX > 0) {
         this.starBG.mesh.rotation.x += (mouseX * 0.01) * 0.075;
