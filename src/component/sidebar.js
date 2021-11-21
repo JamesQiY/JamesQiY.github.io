@@ -20,7 +20,7 @@ const Sidebar = ({darkTheme, setDarkTheme}) => {
       </Link>
       
       <LinkIcon link='https://github.com/JamesQiY' icon={<FaGithub size={iconSize} />} text='Github' />
-      <LinkIcon link='/RESUME_JAMES_YANG.pdf' icon={<FaFile size={iconSize} />} text='Resume' download={true} />
+      <LinkIcon link='/Resume.pdf' icon={<FaFile size={iconSize} />} text='Resume' download={true} />
       <LinkIcon link='https://www.instagram.com/reddishjam/' icon={<FaInstagram size={iconSize} />} text='Instagram'/>
 
       <ThemeIcon darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
