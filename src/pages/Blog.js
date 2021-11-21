@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Blog = () => {
   return (
-    <div className="flex flex-row flex-grow flex-wrap max-h-full items-center justify-center overflow-auto fade-in">
+    <div className="flex flex-row flex-grow flex-wrap max-h-full items-center justify-center overflow-auto px-2 fade-in">
       <Post id={1} date={"Nov 19 2021"} title={"Step 1: Learning the game"} text={<>
       There's an interesting phenomenon when someone is first introduced to board games.
        Players are first flooded with rules and instructions. They have to learn almost everything about the game just to start, let alone have fun.
@@ -36,7 +36,7 @@ const Blog = () => {
 
 const Post = ({id, date, title, text}) => {
   return (
-    <div className="my-4 mx-2 max-w-xl min-w-full sm:min-w-400 lg:min-w-3xl
+    <div className="my-1 mx-2 max-w-xl min-w-full sm:min-w-400 lg:min-w-3xl
         flex flex-one flex-col items-center justify-center rounded-3xl 
         bg-gray-100 dark:bg-truegray-700 shadow-md translate-y-12">
 

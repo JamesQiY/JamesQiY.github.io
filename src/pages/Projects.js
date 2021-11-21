@@ -5,7 +5,7 @@ import CardInfo from './resource/CardInfo.json';
 
 const Projects = () => {
   return (
-    <div className="flex flex-row flex-grow flex-wrap max-h-full items-center justify-center overflow-auto fade-in">
+    <div className="flex flex-row flex-grow flex-wrap max-h-full items-center justify-center overflow-auto p-2 fade-in">
       <Card icon={<FaDiscord size="3em" />} project={CardInfo.bot} />
       <Card icon={<FaFileImage size="3em" />} project={CardInfo.image} />
       <Card icon={<FaLanguage size="3em" />} project={CardInfo.ai} />
@@ -16,7 +16,7 @@ const Projects = () => {
 
 const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
   return (
-    <div className="m-2 mb-2 pt-1 max-w-lg min-w-full sm:min-w-400 lg:min-w-1/4 
+    <div className="ml-1 mr-1 mb-2 pt-1 max-w-lg min-w-full sm:min-w-400 lg:min-w-1/4 
         flex flex-one flex-col items-center justify-center rounded-3xl 
         bg-gray-100 dark:bg-truegray-700 shadow-md translate-y-12">
 
