@@ -72,9 +72,5 @@ LinkIcon.propTypes = {
   text: PropTypes.string,
   download: PropTypes.bool
 };
-ThemeIcon.propTypes = {
-  darkTheme: PropTypes.bool,
-  setDarkTheme: PropTypes.func,
-};
 
 export default Sidebar;

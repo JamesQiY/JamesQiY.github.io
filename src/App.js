@@ -27,9 +27,9 @@ function App() {
 
   return (
     <div className='h-full flex flex-row' id='app' ref={targetRef}>
-      <Background darkTheme={darkTheme} width={dimensions.width} height={dimensions.height} key={darkTheme} />
-      <Sidebar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-      <Main />
+      <Background darkTheme={darkTheme} width={dimensions.width} height={dimensions.height} key={darkTheme}/>
+      <Sidebar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
+      <Main/>
     </div>
   );
 }
