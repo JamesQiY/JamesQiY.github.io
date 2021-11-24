@@ -1,4 +1,4 @@
-import { FaCode, FaHome, FaSun, FaMoon, FaGithub, FaFile, FaInstagram} from 'react-icons/fa';
+import { FaCode, FaHome, FaSun, FaMoon, FaGithub, FaFile, FaChessKnight} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,36 +8,39 @@ const iconSize = '2rem'
 
 const Sidebar = ({darkTheme, setDarkTheme}) => {
   return (
-    <div className='top-0 left-0 w-16 h-full m-0 pt-4 flex flex-col flex-none bg-white dark:bg-gray-700 text-white shadow-lg'>
+    <div className='top-0 left-0 w-16 min-h-screen h-screen m-0 pt-4 flex flex-col flex-none bg-white dark:bg-gray-700 text-white shadow-lg'>
       <Link to="/">
         <SideBarIcon icon={<FaHome size={iconSize} />} text='Home' />
       </Link>
       <Link to="/projects">
         <SideBarIcon icon={<FaCode size={iconSize} />} text='Projects'/>
       </Link>
+      <Link to="/blog">
+        <SideBarIcon icon={<FaChessKnight size={iconSize} />} text='Board Game Blog'/>
+      </Link>
       
       <LinkIcon link='https://github.com/JamesQiY' icon={<FaGithub size={iconSize} />} text='Github' />
-      <LinkIcon link='/RESUME_JAMES_YANG.pdf' icon={<FaFile size={iconSize} />} text='Resume' download={true} />
-      <LinkIcon link='https://www.instagram.com/reddishjam/' icon={<FaInstagram size={iconSize} />} text='Instagram'/>
+      <LinkIcon link='/Resume.pdf' icon={<FaFile size={iconSize} />} text='Resume' download={true} />
 
       <ThemeIcon darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
     </div>
   )
 };
 
+// group-active:scale-100 group-hover:scale-100
 
 const SideBarIcon = ({ icon, text = 'tooltip' }) => (
   <div className='sidebar_icon group'>
     {icon}
-    <span className='sidebar_text group-hover:scale-100 group-active:scale-100'>
+    <div className='sidebar_text group-active:scale-100 group-hover:scale-100'> 
       {text}
-    </span>
+    </div>
   </div>
 );
 
 const LinkIcon = ({ link = '', icon, text = 'tooltip', download = false }) => {
   return (
-    <a href={link} {...download}>
+    <a href={link} {...download} target="_blank" rel="noopener noreferrer">
       <SideBarIcon icon={icon} text={text} />
     </a>
   );
@@ -72,7 +75,6 @@ LinkIcon.propTypes = {
 };
 ThemeIcon.propTypes = {
   darkTheme: PropTypes.bool,
-  setDarkTheme: PropTypes.func,
+  setDarkTheme: PropTypes.func
 };
-
 export default Sidebar;

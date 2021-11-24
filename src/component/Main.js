@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 import Home from '../pages/Home.js';
 import Projects from '../pages/Projects';
-import Background from './Background.js';
+import Blog from '../pages/Blog.js';
 
-const Main = ({darkTheme}) => {
+const Main = () => {
   return (
     <Routes> {/* The Routes decides which component to show based on the current URL.*/}
-      <Route exact path='/' element={<Home darkTheme={darkTheme} key={darkTheme}/>}></Route>
-      <Route exact path='/projects' element={<Projects darkTheme={darkTheme} key={darkTheme} />}></Route>
-      <Route element={<Background darkTheme={darkTheme} key={darkTheme} />}></Route>
+      <Route exact path='/' element={<Home/>}></Route>
+      <Route exact path='/projects' element={<Projects/>}></Route>
+      <Route exact path='/blog' element={<Blog/>}></Route>
     </Routes>
   );
 }
