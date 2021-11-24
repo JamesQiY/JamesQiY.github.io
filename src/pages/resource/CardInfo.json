@@ -4,7 +4,7 @@
     "date": "2021",
     "link": "https://github.com/JamesQiY/calcBot",
     "tech": ["Node.js", "Discord API", "Heroku"],
-    "desc": "A Discord bot that parases and calculates user input for the game Wargroove. Hosted on a third-party cloud service, deployed in the official Wargroove discord. Features custom string parser for maximum convenience for the user. Twitch chat integration for personal account."
+    "desc": "A Discord bot that parses and calculates user input for the game Wargroove. Hosted on a third-party cloud service, deployed in the official Wargroove discord. Features custom string parser for maximum convenience for the user. Twitch chat integration for personal account."
   },
   "ai":{
     "name": "Natural Language Predictor",
