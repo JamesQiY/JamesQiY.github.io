@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaDiscord, FaLanguage, FaNewspaper, FaFileImage } from 'react-icons/fa';
+import {BsCollection} from 'react-icons/bs'
 import PropTypes from 'prop-types';
 import CardInfo from './resource/CardInfo.json';
 
@@ -7,9 +8,10 @@ const Projects = () => {
   return (
     <div className="card_container fade-in">
       <Card icon={<FaDiscord size="3em" />} project={CardInfo.bot} />
+      <Card icon={<BsCollection size="3em" />} project={CardInfo.wardex} />
+      <Card icon={<FaNewspaper size="3em" />} project={CardInfo.site} />
       <Card icon={<FaFileImage size="3em" />} project={CardInfo.image} />
       <Card icon={<FaLanguage size="3em" />} project={CardInfo.ai} />
-      <Card icon={<FaNewspaper size="3em" />} project={CardInfo.site} />
     </div>
   )
 };
@@ -17,7 +19,6 @@ const Projects = () => {
 const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
   return (
     <div className="card">
-
       <div className="flex flex-col items-center justify-center">
         <a className="mt-5 mb-5 rounded-full h-16 w-16 
           flex items-center justify-center 

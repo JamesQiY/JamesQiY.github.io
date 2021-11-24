@@ -18,7 +18,7 @@
     "date": "2021",
     "link": "https://jamesqiy.github.io/",
     "tech": ["React", "Tailwind CSS", "Three.js"],
-    "desc": "This website right here! Next improvement for the site is to add resposive elements for medium and small screens"
+    "desc": "This website right here! Next improvement is to find a way to store blog post in a better format (thinking of using markdown files and importing them)"
   },
   "image": {
     "name": "PGM Image Processor",
@@ -26,7 +26,12 @@
     "link": "https://github.com/JamesQiY/PGM-proc",
     "tech": ["C", "Python"],
     "desc": "An image processor that implements pThreads to apply various Laplace filters to the given PGM image for sharpening images. Different methods of execution was explored (eg. sharded-rows, work-queue). Done as an assignment for CSC367 (Parallel Programming)"
+  },
+  "wardex": {
+    "name": "WarDex - Wargroove Community Collection",
+    "date": "2021",
+    "link": "https://jamesqiy.github.io/wardex/",
+    "tech": ["Node.js", "React", "Chart.js"],
+    "desc": "A simple site that displays a collection of the Wargroove community's memebers and their gameplay ratings with visual elements. Google Forms, Sheets, and Sheets API is used to connect site and populate the data fields. Includes Responsive design."
   }
-
-
 }
