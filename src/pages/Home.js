@@ -18,7 +18,7 @@ const Home = () => {
           My name is Qi Hang Yang but I can also be called James.<br></br>
           I am a recent graduate from University of Toronto under the Software Engineering Stream.
           I&apos;m always trying to learn new ideas and expand my knowledge.
-          Outside of coding, I&apos;m passionate about the world of board games and concept art </div>
+          Outside of coding, I&apos;m passionate about the world of board games and concept art.</div>
           </div>
       </div>
     </div>
