@@ -6,6 +6,7 @@ const Blog = () => {
     <div className="flex flex-col flex-grow
     max-h-full items-center
     overflow-auto p-1.5 fade-in">
+      <Post5 />
       <Post4 />
       <Post3 />
       <Post2 />
@@ -32,20 +33,40 @@ Post.propTypes = {
   date: PropTypes.string,
   text: PropTypes.any
 }
+const Post5 = () => {
+  return (
+    <Post id={5} date={"Nov 29 2021"} title={"2 Player games"} body={<>
+      This will be a short one today again. 2 player games are quite special as a board game. There plenty of quality 2 player board games out there like 'War of the Ring' or 'Watergate'.
+      Most board games will require you to have more than 2 players and it brings a more social interaction to the event. 2 players will be just between you and the other person.
+      Of course other people could be watching as well, but the experience is certainly different.<br />
+      <br />
+      I actually find it to be quite hard to setup a 2 player game. This might sound contradictory, but hear me out. First, there is the expectation that board games are games that involve more than 2.
+      Second, I'm not married. Third, my friends are not always available or have the interest to play. These are the main reasons why I don't seem to play as many 2 player games.
+      These games are perfect for couples though. Just pull it out from your collection and everyone is already there. I can't relate since I don't have a wife but does seem very common in the community.<br />
+      <br />
+
+      The mechanics and depth for these games, especially the dueling games, are up there with the top. Because the player count is less, all the mechanics can be refined without a worry of player scaling.
+      No need for complicated social deductions of multiple players; just you and your opponent.
+      <br />
+      <br />
+      I got more to say, but I will leave that to a later post that covers a more general topic<br />
+      Until then, have fun with your cardboard :)
+    </>} />)
+}
 
 const Post4 = () => {
   return (
     <Post id={4} date={"Nov 23 2021"} title={"Card Games VS Board Games"} body={<>
       This will be a short one today. The terms card games and board games are usually thrown around together.
-      I never had an issue with this but some people are way too technical for some cardboard games.<br/>
+      I never had an issue with this but some people are way too technical for some cardboard games.<br />
       <br />
       Card game refers to games that base most of its mechanics with cards. There maybe some extra components like dice or tokens, but the core of the game is with the cards.
-      Board games are games that involve a physical element that the main interactions of the game will affect. You can have cards or other objects to determine what actions you can take, 
+      Board games are games that involve a physical element that the main interactions of the game will affect. You can have cards or other objects to determine what actions you can take,
       but the core of the game still is reliant on some state on the board. Many games crosses into both territories and blurs the line between what a card game is and what a board game is.
-      Both types of games are listed in Board Game Geek, so are all card games just board games??? In the end, it shouldn't matter (after all, they are just cardboard). 
-      The exprience they give are just carried through different mediums. <br/>
-      <br/>
-      
+      Both types of games are listed in Board Game Geek, so are all card games just board games??? In the end, it shouldn't matter (after all, they are just cardboard).
+      The exprience they give are just carried through different mediums. <br />
+      <br />
+
       Until then, have fun with your cardboard :)
     </>} />)
 }
