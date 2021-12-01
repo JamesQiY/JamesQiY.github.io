@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const Blog = () => {
   return (
-    <div className="flex flex-col flex-grow
+    <div className="page_container flex flex-col flex-grow
     max-h-full items-center
-    overflow-auto p-1.5 fade-in">
+    overflow-auto fade-in">
       <Post5 />
       <Post4 />
       <Post3 />
@@ -33,6 +33,22 @@ Post.propTypes = {
   date: PropTypes.string,
   text: PropTypes.any
 }
+
+/* 
+****************************************************************************
+  BIG NOTE --- REMINDER TO ME AND OTHERS
+
+  This is a horrible, unscalable implementation for a blog. This is just a placeholder until I learned how to make a proper blog.
+  I now have a MUCH better implementation that uses a CMS to run a blog.
+  see https://wguide.vercel.app/.
+
+  This section will soon be updated
+
+  ****************************************************************************
+  ****************************************************************************
+*/
+
+
 const Post5 = () => {
   return (
     <Post id={5} date={"Nov 29 2021"} title={"2 Player games"} body={<>

@@ -43,6 +43,9 @@
     bg-gray-100 dark:bg-truegray-700 shadow-md
   }
 
+  .page_container {
+    @apply p-8 
+  }
 }
 
 html, body, #root {

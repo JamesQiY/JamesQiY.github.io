@@ -4,11 +4,11 @@ import Sidebar from './component/sidebar';
 import Main from './component/Main';
 import Background from './component/Background';
 
-import enableDarkMode from './hooks/darkmode';
+import EnableDarkMode from './hooks/darkmode';
 
 function App() {
-  let [darkTheme, setDarkTheme] = enableDarkMode();
   const targetRef = useRef();
+  const [darkTheme, setDarkTheme] = EnableDarkMode();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -28,8 +28,8 @@ function App() {
   return (
     <div className='h-full flex flex-row' id='app' ref={targetRef}>
       <Sidebar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
-      <Background darkTheme={darkTheme} width={dimensions.width} height={dimensions.height} key={darkTheme}/>
-      <Main/>
+      <Background darkTheme={darkTheme} width={dimensions.width} height={dimensions.height} key={darkTheme} />
+      <Main />
     </div>
   );
 }

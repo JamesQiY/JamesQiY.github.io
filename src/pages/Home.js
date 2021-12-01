@@ -4,7 +4,7 @@ import Header from '../component/header'
 
 const Home = () => {
   return (
-    <div className="flex-1 overflow-auto">
+    <div className="flex-1 overflow-auto page_container">
       <div className='flex flex-1 justify-center'>
         <div className='flex flex-col flex-1 my-4 mx-2 max-w-lg items-center 
           bg-truegray-300 bg-opacity-50 dark:bg-gray-400 dark:bg-opacity-25 
