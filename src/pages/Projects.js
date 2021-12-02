@@ -1,24 +1,26 @@
 import React from 'react';
 import { FaDiscord, FaLanguage, FaNewspaper, FaFileImage } from 'react-icons/fa';
-import {BsCollection} from 'react-icons/bs'
+import {BsCollection, BsFillSignpostFill} from 'react-icons/bs'
 import PropTypes from 'prop-types';
 import CardInfo from './resource/CardInfo.json';
 
 const Projects = () => {
+  const iconsize = '3rem'
   return (
-    <div className="card_container fade-in">
-      <Card icon={<FaDiscord size="3em" />} project={CardInfo.bot} />
-      <Card icon={<BsCollection size="3em" />} project={CardInfo.wardex} />
-      <Card icon={<FaNewspaper size="3em" />} project={CardInfo.site} />
-      <Card icon={<FaFileImage size="3em" />} project={CardInfo.image} />
-      <Card icon={<FaLanguage size="3em" />} project={CardInfo.ai} />
+    <div className="card_container page_container fade-in ">
+      <Card icon={<FaDiscord size={iconsize} />} project={CardInfo.bot} />
+      <Card icon={<BsCollection size={iconsize} />} project={CardInfo.wardex} />
+      <Card icon={<BsFillSignpostFill size={iconsize} />} project={CardInfo.wguides} />
+      <Card icon={<FaNewspaper size={iconsize} />} project={CardInfo.site} />
+      <Card icon={<FaFileImage size={iconsize} />} project={CardInfo.image} />
+      <Card icon={<FaLanguage size={iconsize} />} project={CardInfo.ai} />
     </div>
   )
 };
 
 const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
   return (
-    <div className="card">
+    <div className="card mx-4">
       <div className="flex flex-col items-center justify-center">
         <a className="mt-5 mb-5 rounded-full h-16 w-16 
           flex items-center justify-center 
@@ -43,7 +45,8 @@ const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
       <Tech tech={project.tech} />
       <span className="m-2 p-2 px-auto dark:text-white">{project.desc}</span>
       <a className="flex flex-grow flex-1 
-        w-full px-4 py-1 text-black justify-center bg-red-300 rounded-b-3xl " href={project.link}>Link to Project</a>
+        w-full px-4 py-4 text-black justify-center bg-red-300 rounded-b-3xl 
+        transition duration-300 hover:bg-red-500 font-semibold text-lg" href={project.link}>Link to Project</a>
     </div>
   )
 }

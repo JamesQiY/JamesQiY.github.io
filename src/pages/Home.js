@@ -4,7 +4,7 @@ import Header from '../component/header'
 
 const Home = () => {
   return (
-    <div className="flex-1 overflow-auto">
+    <div className="flex-1 overflow-auto page_container">
       <div className='flex flex-1 justify-center'>
         <div className='flex flex-col flex-1 my-4 mx-2 max-w-lg items-center 
           bg-truegray-300 bg-opacity-50 dark:bg-gray-400 dark:bg-opacity-25 
@@ -18,7 +18,7 @@ const Home = () => {
           My name is Qi Hang Yang but I can also be called James.<br></br>
           I am a recent graduate from University of Toronto under the Software Engineering Stream.
           I&apos;m always trying to learn new ideas and expand my knowledge.
-          Outside of coding, I&apos;m passionate about the world of board games and concept art </div>
+          Outside of coding, I&apos;m passionate about the world of board games and concept art.</div>
           </div>
       </div>
     </div>
