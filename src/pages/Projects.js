@@ -20,7 +20,7 @@ const Projects = () => {
 
 const Card = ({ icon, project = { name: "", tech: [], desc: "" } }) => {
   return (
-    <div className="card">
+    <div className="card mx-4">
       <div className="flex flex-col items-center justify-center">
         <a className="mt-5 mb-5 rounded-full h-16 w-16 
           flex items-center justify-center 
