@@ -8,9 +8,9 @@ const Projects = () => {
   const iconsize = '3rem'
   return (
     <div className="card_container page_container fade-in ">
-      <Card icon={<FaDiscord size={iconsize} />} project={CardInfo.bot} />
-      <Card icon={<BsCollection size={iconsize} />} project={CardInfo.wardex} />
       <Card icon={<BsFillSignpostFill size={iconsize} />} project={CardInfo.wguides} />
+      <Card icon={<BsCollection size={iconsize} />} project={CardInfo.wardex} />
+      <Card icon={<FaDiscord size={iconsize} />} project={CardInfo.bot} />
       <Card icon={<FaNewspaper size={iconsize} />} project={CardInfo.site} />
       <Card icon={<FaFileImage size={iconsize} />} project={CardInfo.image} />
       <Card icon={<FaLanguage size={iconsize} />} project={CardInfo.ai} />

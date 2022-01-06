@@ -5,7 +5,7 @@ const graphqlAPI = process.env.REACT_APP_ENDPOINT;
 
 export const getPosts = async () => {
   const query = gql`
-  query MyQuery {
+  query getPosts {
     blogsConnection {
       edges {
         node {
