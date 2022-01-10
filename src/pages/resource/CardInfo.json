@@ -18,7 +18,7 @@
     "date": "2021",
     "link": "https://jamesqiy.github.io/",
     "tech": ["React", "Tailwind CSS", "Three.js"],
-    "desc": "This website right here! We got responsive design and best practices (to my knowledge of course) One improvement made was using a CMS for the blog, next improvement to also use it for the projects page."
+    "desc": "This website right here! We got responsive design and best practices (to my knowledge of course). One improvement made was using a CMS for the blog, next improvement to also use it for the projects page."
   },
   "image": {
     "name": "PGM Image Processor",
@@ -30,7 +30,7 @@
   "wardex": {
     "name": "WarDex - Wargroove Community Collection",
     "date": "2021",
-    "link": "https://jamesqiy.github.io/wardex/",
+    "link": "https://wardex-collection.vercel.app/",
     "tech": ["Node.js", "React", "Chart.js"],
     "desc": "A simple site that displays a collection of the Wargroove community's members and their gameplay ratings with visual elements. Google Forms, Sheets, and Sheets API is used to connect the site and populate data fields. Includes Responsive design."
   },
@@ -39,6 +39,6 @@
     "date": "2021",
     "link": "https://wguide.vercel.app/",
     "tech": ["Next.js", "GraphQL", "Tailwind CSS"],
-    "desc": "A blog that contains strategy guides for Wargroove. GraphCMS API is used as a content manager, which the api can interact with to get data and render it dynamically. Includes Responsive design."
+    "desc": "A blog that contains strategy guides for Wargroove. GraphCMS API is used as a content manager, which the API can interact with to get data and render it dynamically. Includes Responsive design."
   }
 }

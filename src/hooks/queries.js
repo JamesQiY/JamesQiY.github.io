@@ -1,12 +1,11 @@
 import { request, gql } from 'graphql-request';
 
-require('dotenv').config();
 const graphqlAPI = process.env.REACT_APP_ENDPOINT;
 
 export const getPosts = async () => {
   const query = gql`
-  query MyQuery {
-    blogsConnection {
+  query getPosts {
+    blogsConnection(orderBy: createdAt_DESC) {
       edges {
         node {
           content {
@@ -22,4 +21,21 @@ export const getPosts = async () => {
   `
   const result = await request(graphqlAPI, query)
   return result.blogsConnection.edges;
+}
+
+export const getProjects = async () => {
+  const query = gql`
+  query getProjects {
+    cards {
+      date
+      description
+      link
+      title
+      tech
+      shortname
+    }
+  }
+  `
+  const result = await request(graphqlAPI, query)
+  return result.cards
 }
