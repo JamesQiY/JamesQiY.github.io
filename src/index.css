@@ -6,7 +6,7 @@
   .sidebar_icon {
     @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto 
     shadow-xl dark:shadow-md
-    bg-truegray-200 dark:bg-gray-800 text-red-400 rounded-3xl
+    bg-neutral-200 dark:bg-gray-800 text-red-400 rounded-3xl
     hover:bg-red-700 hover:rounded-xl
     transition-all duration-200 ease-linear;
   }

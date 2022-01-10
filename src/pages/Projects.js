@@ -72,7 +72,7 @@ const Card = ({ icon, project = { title: "", tech: [], desc: "" } }) => {
       className=" sm:m-2 md:max-w-xl h-full row-span-1 col-span-1
       flex flex-col
       rounded-b-3xl sm:rounded-3xl 
-      bg-gray-100 dark:bg-truegray-700 shadow-inner"
+      bg-gray-100 dark:bg-neutral-700 shadow-inner"
     >
       <div className="flex flex-col p-2 items-center justify-center">
         <a

@@ -10,7 +10,7 @@ const Home = () => {
       <div
         className="flex flex-col m-0 sm:mx-4 p-4 max-w-lg
           items-center justify-center overflow-auto
-        bg-truegray-300 bg-opacity-50 dark:bg-gray-400 dark:bg-opacity-25 
+        bg-neutral-300 bg-opacity-50 dark:bg-gray-400 dark:bg-opacity-25 
           sm:rounded-3xl z-10 fade-in"
       >
         <Header className="bg-transparent" />
