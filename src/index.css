@@ -20,79 +20,33 @@
     transition-all duration-100 scale-0 origin-left;
   }
 
-  .header {
-    @apply
-    h-20 p-5 mt-4
-    text-5xl font-sans font-bold
-    text-center justify-center align-middle
-    text-black dark:text-white 
-    bg-transparent;
+  .link_buttons {
+    @apply p-2 col-span-1 sm:text-xl transition duration-300 bg-red-400 hover:bg-red-500 rounded-2xl shadow-inner text-center;
   }
 
-  .card_container{
-    @apply
-    flex flex-row flex-grow flex-wrap 
-    max-h-full items-center justify-center 
-    overflow-auto p-1.5
-  }
-  
-  .card {
-    @apply
-    m-2 my-8 pt-1 max-w-lg min-w-full sm:min-w-400 lg:min-w-1/4
-    flex flex-one flex-col items-center justify-center rounded-3xl 
-    bg-gray-100 dark:bg-truegray-700 shadow-md
-  }
-
-  .page_container {
-    @apply p-8 
-  }
   .rich-text p {
-    @apply py-2 mt-1
+    @apply py-2 mt-1;
   }
 }
 
-html, body, #root {
-  height: 100%;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 0px;
-  margin-right: 1px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-  opacity: 0;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: lightslategrey;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: white;
-}
-
-.sidebar::-webkit-scrollbar {
-  display: none;
+html,
+body {
+  height: 100vh;
 }
 
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-out;
-	animation-duration: 0.5s;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.5s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,35 +1,17 @@
-import React, { useRef, useEffect, useState } from 'react';
-
-import Sidebar from './component/sidebar';
-import Main from './component/Main';
-import Background from './component/Background';
-
-import EnableDarkMode from './hooks/darkmode';
+import React from "react";
+import Sidebar from "./component/sidebar";
+import Main from "./component/Main";
+import Background from "./component/Background";
+import PageProvider from "./hooks/pageContext";
 
 function App() {
-  const targetRef = useRef();
-  const [darkTheme, setDarkTheme] = EnableDarkMode();
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    function handleResize() {
-      if (targetRef.current) {
-        setDimensions({
-          width: targetRef.current.scrollWidth,
-          height: targetRef.current.scrollHeight
-        });
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, [darkTheme]);
-
   return (
-    <div className='h-full flex flex-row' id='app' ref={targetRef}>
-      <Sidebar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
-      <Background darkTheme={darkTheme} width={dimensions.width} height={dimensions.height} key={darkTheme} />
-      <Main />
+    <div className="h-full flex flex-row">
+      <PageProvider>
+        <Sidebar/>
+        <Background/>
+        <Main />
+      </PageProvider>
     </div>
   );
 }

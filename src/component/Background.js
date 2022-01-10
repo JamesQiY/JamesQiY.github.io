@@ -1,85 +1,81 @@
-import React, { Component } from "react";
-import * as THREE from 'three';
-import PropTypes from 'prop-types';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+} from "react";
+import { PageContext } from "../hooks/pageContext";
+import * as THREE from "three";
 
-class Background extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dark: props.darkTheme,
-      statex: this.props.width,
-      statey: this.props.height,
+const Background = () => {
+  const pagectx = useContext(PageContext);
+  const canvasRef = useRef(null);
+  const isMounted = useRef(false);
+
+  const [meshState, setmeshState] = useState(null);
+  const [rendererState, setrendererState] = useState(null);
+  const [sceneState, setsceneState] = useState(null);
+  const [cameraState, setcameraState] = useState(null);
+
+  function startAnimation() {
+    let renderer = rendererState;
+    let mouseX = 0, mouseY = 0;
+    let mouse = document.addEventListener("mousemove", mouseStars);
+
+    function mouseStars(event) {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
     }
-    this.listeners = {};
-    this.starBG = {}; //render object
-    this.handleResize = this.handleResize.bind(this);
-    this.startAnimation = this.startAnimation.bind(this);
+
+    const clock = new THREE.Clock();
+    const animate = () => {
+      const speed = 0.3;
+      meshState.rotation.y = speed * clock.getElapsedTime();
+      meshState.rotation.x = speed * clock.getElapsedTime();
+
+      if (mouseX > 0) {
+        meshState.rotation.x += mouseX * 0.01 * 0.075;
+        meshState.rotation.y += mouseY * 0.01 * 0.075;
+      }
+      renderer.render(sceneState, cameraState);
+      window.requestAnimationFrame(animate);
+    };
+    animate();
+    return mouse;
   }
 
-  handleResize() {
-    this.x = this.props.width;
-    this.y = this.props.height;
-  }
-
-  componentDidUpdate() {
-    this.starBG.renderer.setSize(this.props.width, this.props.height)
-    this.starBG.camera.aspect = this.props.width / this.props.height;
-    this.starBG.camera.updateProjectionMatrix()
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
-    this.background_init();
-    this.listeners = this.startAnimation();
-  }
-
-  componentWillUnmount() {
-    try {
-      window.removeEventListener('resize', this.handleResize);
-      window.removeEventListener('mousemove', this.listeners);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  render() {
-    const canvas = <canvas id="bg" className="absolute p-0 m-0 -z-10 opacity-90 overflow-hidden" width={this.props.width} height={this.props.height} ></canvas>;
-    return (canvas)
-  }
-
-  background_init() {
-    let darkMode = this.state.dark;
-    // colors 
-    const bg_color = darkMode ? 0x212121 : 0xffffff;
+  function init() {
+    //init
+    const bg_color = pagectx.darkTheme ? 0x212121 : 0xffffff;
 
     // scene
     const scene = new THREE.Scene();
-    var canvas = document.querySelector('canvas');
-    let sizeX = this.x;
-    let sizeY = this.y;
+    let canvas = document.querySelector("canvas");
+    let sizeX = pagectx.width;
+    let sizeY = pagectx.height;
 
     // camera
     const camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100);
     camera.position.x = 0;
     camera.position.y = 0;
     camera.position.z = 2;
-    scene.add(camera)
+    scene.add(camera);
 
     // render
-    var renderer = new THREE.WebGLRenderer({
-      canvas: canvas
+    let renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
     });
     renderer.setSize(sizeX, sizeY);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(bg_color);
 
     // lights
-    const pointLight = new THREE.PointLight(0xffffff, 0.1, 100)
+    const pointLight = new THREE.PointLight(0xffffff, 0.1, 100);
     pointLight.position.set(50, 50, 50);
     scene.add(pointLight);
 
     // geometry objects
-    var stars = new THREE.BufferGeometry();
+    let stars = new THREE.BufferGeometry();
     const starsNum = 6000;
     const posArray = [];
     const colArray = [];
@@ -98,8 +94,11 @@ class Background extends Component {
       posArray.push(x, y, z);
       colArray.push(color.r, color.g, color.b);
     }
-    stars.setAttribute('position', new THREE.Float32BufferAttribute(posArray, 3));
-    stars.setAttribute('color', new THREE.Float32BufferAttribute(colArray, 3));
+    stars.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(posArray, 3)
+    );
+    stars.setAttribute("color", new THREE.Float32BufferAttribute(colArray, 3));
     stars.computeBoundingSphere();
 
     // materials
@@ -107,46 +106,52 @@ class Background extends Component {
       vertexColors: true,
       size: 0.0075,
     });
-    const starMesh = new THREE.Points(stars, starMaterial)
+    const starMesh = new THREE.Points(stars, starMaterial);
     scene.add(starMesh);
 
-    this.starBG.mesh = starMesh;
-    this.starBG.renderer = renderer;
-    this.starBG.scene = scene;
-    this.starBG.camera = camera;
+    setmeshState(starMesh);
+    setrendererState(renderer);
+    setsceneState(scene);
+    setcameraState(camera);
   }
 
-  startAnimation() {
-    var renderer = this.starBG.renderer
-    let mouseX = 0;
-    let mouseY = 0;
-    let mouse = document.addEventListener('mousemove', mouseStars);
+  useEffect(() => {
+    let handler = null;
+    if (isMounted.current) {
+      canvasRef.current.width = pagectx.width;
+      canvasRef.current.height = pagectx.height;
 
-    function mouseStars(event) {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
+      rendererState.setSize(pagectx.width, pagectx.height);
+      rendererState.setClearColor(pagectx.darkTheme ? 0x212121 : 0xffffff);
+      cameraState.aspect = pagectx.width / pagectx.height;
+      cameraState.updateProjectionMatrix();
+      handler = startAnimation();
     }
 
-    const clock = new THREE.Clock();
-    const animate = () => {
-      const speed = 0.3;
-      this.starBG.mesh.rotation.y = speed * clock.getElapsedTime();
-      this.starBG.mesh.rotation.x = speed * clock.getElapsedTime();
-
-      if (mouseX > 0) {
-        this.starBG.mesh.rotation.x += (mouseX * 0.01) * 0.075;
-        this.starBG.mesh.rotation.y += (mouseY * 0.01) * 0.075;
+    return () => {
+      if (isMounted.current) {
+        window.removeEventListener("mousemove", handler);
       }
-      renderer.render(this.starBG.scene, this.starBG.camera);
-      window.requestAnimationFrame(animate)
-    }
-    animate();
-    return mouse;
-  }
-}
+    };
+  }, [pagectx.darkTheme, pagectx.width, pagectx.height, isMounted.current]);
 
-Background.propTypes = {
-  dark: PropTypes.bool
-}
+  useEffect(() => {
+    if (!isMounted.current) {
+      init();
+      isMounted.current = true;
+    }
+    return () => {
+      
+    };
+  }, []);
+
+  return (
+    <canvas
+      id="bg"
+      className="absolute p-0 m-0 -z-10 overflow-hidden"
+      ref={canvasRef}
+    ></canvas>
+  );
+};
 
 export default Background;

@@ -1,44 +1,64 @@
-import { FaCode, FaHome, FaSun, FaMoon, FaGithub, FaFile, FaChessKnight} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { PageContext } from "../hooks/pageContext";
+import {
+  FaCode,
+  FaHome,
+  FaSun,
+  FaMoon,
+  FaGithub,
+  FaFile,
+  FaChessKnight,
+} from "react-icons/fa";
 
 // globals
-const iconSize = '2rem'
+const iconSize = "2rem";
 
-const Sidebar = ({darkTheme, setDarkTheme}) => {
+const Sidebar = () => {
   return (
-    <div className='top-0 left-0 w-16 min-h-screen h-screen m-0 pt-4 flex flex-col flex-none bg-white dark:bg-gray-700 text-white shadow-lg'>
+    <div className="flex flex-col p-2 w-16 h-screen bg-white dark:bg-gray-700 text-white">
       <Link to="/">
-        <SideBarIcon icon={<FaHome size={iconSize} />} text='Home' />
+        <SideBarIcon icon={<FaHome size={iconSize} />} text="Home" />
       </Link>
       <Link to="/projects">
-        <SideBarIcon icon={<FaCode size={iconSize} />} text='Projects'/>
+        <SideBarIcon icon={<FaCode size={iconSize} />} text="Projects" />
       </Link>
       <Link to="/blog">
-        <SideBarIcon icon={<FaChessKnight size={iconSize} />} text='Board Game Blog'/>
+        <SideBarIcon
+          icon={<FaChessKnight size={iconSize} />}
+          text="Board Game Blog"
+        />
       </Link>
-      
-      <LinkIcon link='https://github.com/JamesQiY' icon={<FaGithub size={iconSize} />} text='Github' />
-      <LinkIcon link='/Resume.pdf' icon={<FaFile size={iconSize} />} text='Resume' download={true} />
 
-      <ThemeIcon darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
+      <LinkIcon
+        link="https://github.com/JamesQiY"
+        icon={<FaGithub size={iconSize} />}
+        text="Github"
+      />
+      <LinkIcon
+        link="/Resume.pdf"
+        icon={<FaFile size={iconSize} />}
+        text="Resume"
+        download={true}
+      />
+
+      <ThemeIcon />
     </div>
-  )
+  );
 };
 
 // group-active:scale-100 group-hover:scale-100
 
-const SideBarIcon = ({ icon, text = 'tooltip' }) => (
-  <div className='sidebar_icon group'>
+const SideBarIcon = ({ icon, text = "tooltip" }) => (
+  <div className="sidebar_icon group">
     {icon}
-    <div className='sidebar_text group-active:scale-100 group-hover:scale-100'> 
+    <div className="sidebar_text group-active:scale-100 group-hover:scale-100">
       {text}
     </div>
   </div>
 );
 
-const LinkIcon = ({ link = '', icon, text = 'tooltip', download = false }) => {
+const LinkIcon = ({ link = "", icon, text = "tooltip", download = false }) => {
   return (
     <a href={link} {...download} target="_blank" rel="noopener noreferrer">
       <SideBarIcon icon={icon} text={text} />
@@ -46,35 +66,20 @@ const LinkIcon = ({ link = '', icon, text = 'tooltip', download = false }) => {
   );
 };
 
-const ThemeIcon = ({darkTheme, setDarkTheme}) => {
+const ThemeIcon = () => {
+  const states = useContext(PageContext);
+  let darkTheme = states.darkTheme;
+  let setDarkTheme = states.setDarkTheme;
   const toggle = () => setDarkTheme(!darkTheme);
   return (
     <div onClick={toggle}>
       {darkTheme ? (
-        <SideBarIcon icon={<FaSun size={iconSize} />} text='Light mode' />
+        <SideBarIcon icon={<FaSun size={iconSize} />} text="Light mode" />
       ) : (
-        <SideBarIcon icon={<FaMoon size={iconSize} />} text='Dark mode' />
+        <SideBarIcon icon={<FaMoon size={iconSize} />} text="Dark mode" />
       )}
     </div>
   );
 };
 
-Sidebar.propTypes = {
-  darkTheme: PropTypes.bool,
-  setDarkTheme: PropTypes.func,
-};
-SideBarIcon.propTypes = {
-  icon: PropTypes.any,
-  text: PropTypes.string,
-};
-LinkIcon.propTypes = {
-  link: PropTypes.string,
-  icon: PropTypes.any,
-  text: PropTypes.string,
-  download: PropTypes.bool
-};
-ThemeIcon.propTypes = {
-  darkTheme: PropTypes.bool,
-  setDarkTheme: PropTypes.func
-};
 export default Sidebar;
